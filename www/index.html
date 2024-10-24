@@ -39,6 +39,19 @@
             btnCClick(e);
         });
         init();
+
+        $('#btnZ').click(function(e) {
+            btnZClick(e);
+        });
+        init();
+
+        $('#btnY').click(function(e) {
+            btnYClick(e);
+        });
+        init();
+
+
+      
     });
     
     function rgbToColor(r,g,b){
@@ -156,6 +169,8 @@
     var period = 0;
     var rest = 0;
     var etime = 0;
+    var color =hsla;
+    var before=0;
 
    
 
@@ -165,6 +180,9 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
+        $('#btnZ').prop('disabled', false);
+        $('#btnY').prop('disabled', false);
+       
         
     }
 
@@ -195,6 +213,40 @@
         
         
     }
+   function btnZClick(e){
+       let min = 1;let max = 4;
+       let randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+
+       
+
+       if(randomInt===1){
+           color='white';
+
+       }else if(randomInt===2){
+           color='yellow';
+
+
+       }else if(randomInt===3){
+           color='green';
+
+
+       } else{
+           color='blue';
+       }
+
+        $('body').css('background-color', color);
+        
+
+        
+        
+    }
+
+    function btnYClick(e){
+         $('body').css('background-color', 'hsla');
+
+        
+        
+    }
 
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
@@ -213,7 +265,7 @@
         $("#remain").html("残り時間： " + period);
         
     }
-    
+
  
     // 繰り返し実行する処理
     function timer(){  
@@ -242,9 +294,11 @@
 
     <div id="remain">Remaining time</div>
     <div id="time">Time</div>
-    <button id="btnA">ButtonA</button>  
-    <button id="btnB">ButtonB</button>  
-    <button id="btnC">ButtonC</button>  
+    <button id="btnA">Start</button>  
+    <button id="btnB">stop</button>  
+    <button id="btnC">set</button> 
+    <button id="btnZ">color</button>
+    <button id="btnY">hh</button> 
     <input type="number" id="minute" value=3 >
     <input type="number" id="second" value=0 >
 </body>
